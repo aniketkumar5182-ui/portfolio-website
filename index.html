@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aniket — Front-End Developer &amp; Digital Creator</title>
+  <meta name="description" content="Portfolio of Aniket, a front-end developer and digital creator building accessible, animated web experiences — plus dashboards, apps, and content on the side.">
+  <link rel="canonical" href="https://aniket.dev/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aniket — Front-End Developer & Digital Creator">
+  <meta property="og:description" content="Building accessible, animated web experiences, personal dashboards, and creator tools.">
+  <meta property="og:url" content="https://aniket.dev/">
+  <meta property="og:image" content="https://aniket.dev/assets/og-cover.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aniket — Front-End Developer & Digital Creator">
+  <meta name="twitter:description" content="Building accessible, animated web experiences, personal dashboards, and creator tools.">
+
+  <meta name="theme-color" content="#EFF3EE">
+  <link rel="icon" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Aniket<span>.</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        Menu
+      </button>
+      <nav class="primary-nav" id="primary-nav" data-open="false" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="projects.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Front-end developer / digital creator</p>
+        <h1>I build interfaces that feel considered — <br>on screen, and off it.</h1>
+        <p class="lede">
+          I'm Aniket. By day I write semantic, accessible front-end code; by night
+          I'm usually tracking a habit, learning a riff, or shaping a reel. My
+          work sits where clean engineering meets a little bit of feeling.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="projects.html">See the work</a>
+          <a class="btn btn-outline" href="contact.html">Start a conversation</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="vitals" aria-label="A few running totals">
+      <div class="wrap" style="padding-inline:0;">
+        <ul>
+          <li><span class="num">12</span><span class="lbl">Projects shipped</span></li>
+          <li><span class="num">100</span><span class="lbl">Lighthouse a11y target</span></li>
+          <li><span class="num">3+</span><span class="lbl">Years building for the web</span></li>
+          <li><span class="num">6</span><span class="lbl">Cities lived / traveled</span></li>
+          <li><span class="num">∞</span><span class="lbl">Guitar practice loops</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <section aria-labelledby="featured-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="featured-heading">Featured work</h2>
+          <a class="btn btn-outline" href="projects.html">View all</a>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <p class="meta">Web app</p>
+            <h3>Life Dashboard</h3>
+            <p>A single-file personal tracker covering fitness, finances, and
+              skill-building, with a nightly journal that parses free-text
+              notes into structured entries.</p>
+            <div class="tag-row">
+              <span class="tag">HTML/CSS/JS</span>
+              <span class="tag">Data viz</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <p class="meta">Cross-posting tool</p>
+            <h3>PostBlast</h3>
+            <p>A React app for managing uploads across multiple social
+              accounts, with platform-level selection and animated upload
+              progress.</p>
+            <div class="tag-row">
+              <span class="tag">React</span>
+              <span class="tag">Creator tools</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <p class="meta">Commerce</p>
+            <h3>Mithila Kart</h3>
+            <p>A self-contained grocery app with buyer and seller sides,
+              role-based login, inventory management, and payment screens.</p>
+            <div class="tag-row">
+              <span class="tag">HTML/CSS/JS</span>
+              <span class="tag">UX</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="approach-heading">
+      <div class="wrap split">
+        <div>
+          <h2 id="approach-heading">How I build</h2>
+          <p>
+            I care about the parts of a build that don't show up in a
+            screenshot: semantic markup, keyboard access, meaningful motion.
+            A page should hold up whether it's read by an eye or a screen
+            reader.
+          </p>
+          <p>
+            Outside of code, I'm usually somewhere between a dance class, a
+            gym session, and a half-finished travel post — and most of it
+            eventually ends up as a feature request for my own dashboard.
+          </p>
+        </div>
+        <blockquote>
+          Ship something semantic first. The animation can come after — the
+          structure is what has to be right.
+          <footer>Aniket, on process</footer>
+        </blockquote>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <ul class="footer-links">
+        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="mailto:hello@aniket.dev">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Aniket. Built by hand.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

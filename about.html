@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Aniket</title>
+  <meta name="description" content="About Aniket — a front-end developer and digital creator, and the accessibility-first approach behind this portfolio.">
+  <link rel="canonical" href="https://aniket.dev/about.html">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="About — Aniket">
+  <meta property="og:description" content="Front-end developer and digital creator.">
+  <meta property="og:url" content="https://aniket.dev/about.html">
+
+  <meta name="theme-color" content="#EFF3EE">
+  <link rel="icon" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Aniket<span>.</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav class="primary-nav" id="primary-nav" data-open="false" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Work</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero" style="padding-block: clamp(2.5rem, 6vw, 4rem) 1.5rem;">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow">About</p>
+          <h1>Code by day, a few other things by night.</h1>
+          <p class="lede">
+            I'm a front-end developer who ended up building most of my own
+            tools — a life dashboard, a cross-posting app, a grocery
+            platform — because I wanted to see exactly how they'd feel to
+            use.
+          </p>
+        </div>
+        <figure style="margin:0;">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=800&auto=format&fit=crop"
+               alt="Laptop on a desk showing lines of code, next to an acoustic guitar leaning against the wall"
+               style="border-radius:4px; border:1px solid var(--line);">
+          <figcaption class="hint" style="margin-top:0.6rem; font-family: var(--font-mono); font-size:0.75rem; color:var(--ink-faint);">
+            Desk setup — half IDE, half practice space.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="bio-heading">A bit more</h2>
+        </div>
+        <div class="split">
+          <div>
+            <p>
+              I work mostly in HTML, CSS, and JavaScript, with React for
+              anything that needs to feel like an app rather than a page. I'm
+              particular about semantic structure and keyboard access — not
+              as a checklist, but because it's usually the difference
+              between a page that works and one that only looks like it
+              does.
+            </p>
+            <p>
+              Outside of that, I split my time between the gym, dance
+              practice, guitar, and a slow-growing Instagram presence. A lot
+              of it eventually turns into a feature request for my own
+              dashboard — which is, admittedly, a strange feedback loop, but
+              it works for me.
+            </p>
+          </div>
+          <div>
+            <h3 style="font-size:1rem; font-family: var(--font-mono); text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-faint);">Skills</h3>
+            <ul class="skills-list">
+              <li>HTML5 / Semantic markup</li>
+              <li>CSS / Animation</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Accessibility (WCAG)</li>
+              <li>SEO fundamentals</li>
+              <li>Data visualization</li>
+              <li>UI/UX</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="timeline-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="timeline-heading">A rough timeline</h2>
+        </div>
+        <ol class="timeline">
+          <li>
+            <time datetime="2026">2026</time>
+            <div>
+              <h3>Personal dashboards &amp; storytelling pages</h3>
+              <p>Built a life-tracking dashboard with an API-powered journal,
+                plus two emotionally-led single-page experiences with a
+                strong focus on typography and motion.</p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2025">2025</time>
+            <div>
+              <h3>Cross-posting &amp; commerce tools</h3>
+              <p>Shipped PostBlast, a multi-account social cross-posting
+                app, and Mithila Kart, a full buyer/seller grocery
+                platform.</p>
+            </div>
+          </li>
+          <li>
+            <time datetime="2024">2024</time>
+            <div>
+              <h3>Started building for the web in earnest</h3>
+              <p>Moved from one-off scripts to full front-end builds, with a
+                growing focus on accessibility and clean structure.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <ul class="footer-links">
+        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="mailto:hello@aniket.dev">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Aniket. Built by hand.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

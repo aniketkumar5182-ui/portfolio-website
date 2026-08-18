@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Aniket</title>
+  <meta name="description" content="Get in touch with Aniket for front-end development work, collaborations, or a chat about a project.">
+  <link rel="canonical" href="https://aniket.dev/contact.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — Aniket">
+  <meta property="og:description" content="Get in touch for front-end development work or collaborations.">
+  <meta property="og:url" content="https://aniket.dev/contact.html">
+
+  <meta name="theme-color" content="#EFF3EE">
+  <link rel="icon" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">Aniket<span>.</span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav class="primary-nav" id="primary-nav" data-open="false" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero" style="padding-block: clamp(2.5rem, 6vw, 4rem) 1.5rem;">
+      <div class="wrap">
+        <p class="eyebrow">Get in touch</p>
+        <h1>Let's talk about a project.</h1>
+        <p class="lede">Whether it's front-end work, a dashboard idea, or
+          something else entirely — send a note and I'll get back to you.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <div class="wrap">
+        <h2 id="contact-heading" class="visually-hidden">Contact details and form</h2>
+        <div class="contact-grid">
+
+          <div>
+            <dl class="info-list">
+              <li>
+                <dt>Email</dt>
+                <dd><a href="mailto:hello@aniket.dev">hello@aniket.dev</a></dd>
+              </li>
+              <li>
+                <dt>Instagram</dt>
+                <dd><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">@aniket <span class="visually-hidden">(opens in a new tab)</span></a></dd>
+              </li>
+              <li>
+                <dt>GitHub</dt>
+                <dd><a href="https://github.com" target="_blank" rel="noopener noreferrer">github.com/aniket <span class="visually-hidden">(opens in a new tab)</span></a></dd>
+              </li>
+              <li>
+                <dt>Based in</dt>
+                <dd>Uttarakhand, India</dd>
+              </li>
+            </dl>
+          </div>
+
+          <div>
+            <form id="contact-form" novalidate aria-describedby="form-instructions">
+              <p id="form-instructions" class="hint" style="margin-top:0;">
+                Fields marked <span class="required-mark" aria-hidden="true">*</span>
+                <span class="visually-hidden">asterisk</span> are required.
+              </p>
+
+              <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+
+              <fieldset>
+                <legend>Your details</legend>
+
+                <div class="field">
+                  <label for="name">Name <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                    aria-describedby="name-error">
+                  <p id="name-error" class="field-error" role="alert"></p>
+                </div>
+
+                <div class="field">
+                  <label for="email">Email <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                    aria-required="true"
+                    aria-describedby="email-hint email-error">
+                  <p id="email-hint" class="hint">I'll reply here, so double-check it.</p>
+                  <p id="email-error" class="field-error" role="alert"></p>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>Your message</legend>
+
+                <div class="field">
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject" autocomplete="off">
+                    <option value="project">New project</option>
+                    <option value="collab">Collaboration</option>
+                    <option value="job">Job opportunity</option>
+                    <option value="other">Something else</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="message">Message <span class="required-mark" aria-hidden="true">*</span></label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    aria-required="true"
+                    aria-describedby="message-hint message-error"></textarea>
+                  <p id="message-hint" class="hint">A few sentences is plenty — at least 10 characters.</p>
+                  <p id="message-error" class="field-error" role="alert"></p>
+                </div>
+              </fieldset>
+
+              <button type="submit" class="btn btn-solid">Send message</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <ul class="footer-links">
+        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="mailto:hello@aniket.dev">Email</a></li>
+      </ul>
+      <p class="copyright">&copy; 2026 Aniket. Built by hand.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
