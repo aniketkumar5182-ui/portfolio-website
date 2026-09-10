@@ -28,7 +28,6 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">Aniket<span>.</span></a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
       <nav class="primary-nav" id="primary-nav" data-open="false" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -37,6 +36,13 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <div class="header-controls">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          <span class="icon-light" aria-hidden="true">&#9728;</span>
+          <span class="icon-dark" aria-hidden="true">&#9789;</span>
+        </button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      </div>
     </div>
   </header>
 

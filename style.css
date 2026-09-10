@@ -14,6 +14,7 @@
   --accent-ink:    #FFFFFF;
   --accent-2:      #F2A93A;
   --focus:         #1B4DFF;
+  --shadow:        0 1px 2px rgba(20, 32, 26, 0.04);
 
   --font-display:  "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-body:     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -22,17 +23,49 @@
   --maxw: 72rem;
   --radius: 4px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  color-scheme: light;
+}
+
+/* Dark theme — driven by a data attribute the theme toggle sets on <html>,
+   so the palette is still an explicit design choice, just one the visitor
+   (or their OS) can switch on rather than something forced automatically. */
+:root[data-theme="dark"]{
+  --bg:            #121814;
+  --surface:       #1B231D;
+  --ink:           #EDF1EC;
+  --ink-soft:      #B7C2BA;
+  --ink-faint:     #7E8B82;
+  --line:          #2C3830;
+  --line-strong:   #445347;
+  --accent:        #FF6E68;
+  --accent-2:      #F2A93A;
+  --focus:         #6E8CFF;
+  --shadow:        0 1px 2px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark){
-  /* Intentionally not auto-switching — the palette is a design choice, not a system default. */
+  :root:not([data-theme="light"]):not([data-theme="dark"]){
+    --bg:            #121814;
+    --surface:       #1B231D;
+    --ink:           #EDF1EC;
+    --ink-soft:      #B7C2BA;
+    --ink-faint:     #7E8B82;
+    --line:          #2C3830;
+    --line-strong:   #445347;
+    --accent:        #FF6E68;
+    --accent-2:      #F2A93A;
+    --focus:         #6E8CFF;
+    --shadow:        0 1px 2px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
 }
 
 *, *::before, *::after{ box-sizing: border-box; }
 
 html{
   background: var(--bg);
-  color-scheme: light;
 }
 
 body{
@@ -43,6 +76,12 @@ body{
   font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.site-header,
+.card, form, .vitals, .theme-toggle{
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 img{ max-width: 100%; display: block; }
@@ -140,7 +179,9 @@ ul, ol{ padding-left: 1.2em; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
   padding-block: 1.1rem;
+  position: relative;
 }
 .brand{
   font-family: var(--font-display);
@@ -152,12 +193,30 @@ ul, ol{ padding-left: 1.2em; }
 }
 .brand span{ color: var(--accent); }
 
+.header-controls{
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: auto;
+}
+
+/* Mobile-first: base layout is the small-screen version — nav is
+   collapsed behind the toggle. Wider viewports (min-width) get the
+   inline horizontal nav layered on top below. */
+.primary-nav{
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
 .primary-nav ul{
   list-style: none;
   display: flex;
-  gap: clamp(1rem, 2.5vw, 2.1rem);
+  flex-direction: column;
+  gap: 0;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem var(--gutter) 1.2rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.04em;
@@ -166,42 +225,66 @@ ul, ol{ padding-left: 1.2em; }
 .primary-nav a{
   text-decoration: none;
   color: var(--ink-soft);
-  padding: 0.3rem 0.1rem;
+  padding: 0.6rem 0.1rem;
   border-bottom: 2px solid transparent;
+  display: block;
 }
 .primary-nav a:hover{ color: var(--ink); }
 .primary-nav a[aria-current="page"]{
   color: var(--ink);
   border-bottom-color: var(--accent);
 }
+.primary-nav[data-open="false"]{ display: none; }
 
 .nav-toggle{
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   background: none;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   padding: 0.5rem 0.7rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  color: var(--ink);
   cursor: pointer;
 }
 
-@media (max-width: 640px){
-  .nav-toggle{ display: inline-flex; align-items: center; gap: 0.4em; }
+.theme-toggle{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+}
+.theme-toggle:hover{ border-color: var(--accent); }
+.theme-toggle .icon-dark{ display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-light{ display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-dark{ display: inline; }
+
+/* Tablet and up: nav becomes an inline row, hamburger disappears */
+@media (min-width: 641px){
+  .nav-toggle{ display: none; }
   .primary-nav{
-    position: absolute;
-    inset-inline: 0;
-    top: 100%;
-    background: var(--bg);
-    border-bottom: 1px solid var(--line);
+    position: static;
+    background: none;
+    border-bottom: none;
   }
   .primary-nav ul{
-    flex-direction: column;
-    gap: 0;
-    padding: 0.5rem var(--gutter) 1.2rem;
+    flex-direction: row;
+    gap: clamp(1rem, 2.5vw, 2.1rem);
+    padding: 0;
   }
-  .primary-nav a{ display: block; padding: 0.6rem 0; }
-  .primary-nav[data-open="false"]{ display: none; }
+  .primary-nav a{ padding: 0.3rem 0.1rem; }
+  .primary-nav[data-open="false"]{ display: block; }
 }
 
 /* =========================================================
@@ -364,22 +447,24 @@ section{ padding-block: clamp(2.5rem, 6vw, 4.5rem); }
 .card a.card-link:hover{ color: var(--accent); }
 
 /* -------------------- two column -------------------- */
+/* Mobile-first: single stacked column is the base; two columns are an
+   enhancement applied once there's room for them. */
 .split{
   display: grid;
   gap: clamp(2rem, 5vw, 4rem);
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr;
   align-items: start;
 }
-@media (max-width: 780px){
-  .split{ grid-template-columns: 1fr; }
+@media (min-width: 781px){
+  .split{ grid-template-columns: 1.1fr 0.9fr; }
 }
 
 /* -------------------- timeline (about page) -------------------- */
 .timeline{ list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .timeline li{
   display: grid;
-  grid-template-columns: 6.5rem 1fr;
-  gap: 1.2rem;
+  grid-template-columns: 1fr;
+  gap: 0.4rem;
   padding: 1.3rem 0;
   border-bottom: 1px solid var(--line);
 }
@@ -391,6 +476,77 @@ section{ padding-block: clamp(2.5rem, 6vw, 4.5rem); }
 }
 .timeline h3{ font-size: 1.05rem; margin-bottom: 0.2em; }
 .timeline p{ margin: 0; }
+
+@media (min-width: 561px){
+  .timeline li{
+    grid-template-columns: 6.5rem 1fr;
+    gap: 1.2rem;
+  }
+}
+
+/* -------------------- snapshot bento (homepage signature grid) -------------------- */
+/* A genuinely two-dimensional CSS Grid layout: named areas let the quote
+   span two rows next to a 2x2 block of stat tiles, then collapse to a
+   single stacked column on small screens (mobile-first). */
+.snapshot{
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "quote"
+    "s1"
+    "s2"
+    "s3"
+    "s4";
+}
+@media (min-width: 641px){
+  .snapshot{
+    grid-template-columns: repeat(2, 1fr) repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+      "quote quote s1 s2"
+      "quote quote s3 s4";
+  }
+}
+.snapshot-quote{ grid-area: quote; }
+.snapshot > *:nth-of-type(2){ grid-area: s1; }
+.snapshot > *:nth-of-type(3){ grid-area: s2; }
+.snapshot > *:nth-of-type(4){ grid-area: s3; }
+.snapshot > *:nth-of-type(5){ grid-area: s4; }
+
+.snapshot-quote{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.4rem, 3vw, 2rem);
+  display: flex;
+  align-items: center;
+}
+.snapshot-quote blockquote{ padding: 0 0 0 1.2rem; }
+
+.stat-tile{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.stat-tile .num{
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-tile .lbl{
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-faint);
+}
 
 /* -------------------- skills -------------------- */
 .skills-list{
@@ -433,11 +589,11 @@ blockquote footer{
 .contact-grid{
   display: grid;
   gap: clamp(2rem, 5vw, 4rem);
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr;
   align-items: start;
 }
-@media (max-width: 780px){
-  .contact-grid{ grid-template-columns: 1fr; }
+@media (min-width: 781px){
+  .contact-grid{ grid-template-columns: 1fr 1.2fr; }
 }
 
 .info-list{ list-style: none; margin: 0; padding: 0; }

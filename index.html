@@ -35,9 +35,6 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">Aniket<span>.</span></a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-        Menu
-      </button>
       <nav class="primary-nav" id="primary-nav" data-open="false" aria-label="Primary">
         <ul>
           <li><a href="index.html" aria-current="page">Home</a></li>
@@ -46,6 +43,13 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <div class="header-controls">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          <span class="icon-light" aria-hidden="true">&#9728;</span>
+          <span class="icon-dark" aria-hidden="true">&#9789;</span>
+        </button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      </div>
     </div>
   </header>
 
@@ -88,6 +92,19 @@
 
         <div class="grid">
           <article class="card">
+            <p class="meta">Live app</p>
+            <h3>Weather Dashboard</h3>
+            <p>Real-time weather by city search, built on the Fetch API,
+              async/await, and a public REST API — with error handling for
+              slow or failed requests.</p>
+            <div class="tag-row">
+              <span class="tag">Fetch API</span>
+              <span class="tag">REST</span>
+            </div>
+            <a class="card-link" href="weather-dashboard/index.html">Open it →</a>
+          </article>
+
+          <article class="card">
             <p class="meta">Web app</p>
             <h3>Life Dashboard</h3>
             <p>A single-file personal tracker covering fitness, finances, and
@@ -126,9 +143,42 @@
     </section>
 
     <section aria-labelledby="approach-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="approach-heading">How I build</h2>
+        </div>
+        <div class="snapshot">
+          <div class="snapshot-quote">
+            <blockquote>
+              Ship something semantic first. The animation can come after —
+              the structure is what has to be right.
+              <footer>Aniket, on process</footer>
+            </blockquote>
+          </div>
+          <div class="stat-tile">
+            <span class="num">3+</span>
+            <span class="lbl">Years building for the web</span>
+          </div>
+          <div class="stat-tile">
+            <span class="num">100</span>
+            <span class="lbl">Lighthouse a11y target</span>
+          </div>
+          <div class="stat-tile">
+            <span class="num">12</span>
+            <span class="lbl">Projects shipped</span>
+          </div>
+          <div class="stat-tile">
+            <span class="num">2</span>
+            <span class="lbl">Languages I build in daily</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="approach2-heading">
       <div class="wrap split">
         <div>
-          <h2 id="approach-heading">How I build</h2>
+          <h2 id="approach2-heading" class="visually-hidden">More on how I work</h2>
           <p>
             I care about the parts of a build that don't show up in a
             screenshot: semantic markup, keyboard access, meaningful motion.
@@ -141,11 +191,13 @@
             eventually ends up as a feature request for my own dashboard.
           </p>
         </div>
-        <blockquote>
-          Ship something semantic first. The animation can come after — the
-          structure is what has to be right.
-          <footer>Aniket, on process</footer>
-        </blockquote>
+        <div class="card">
+          <p class="meta">This site, technically</p>
+          <h3>Built mobile-first</h3>
+          <p>Every layout here starts as a single stacked column, then
+            gains grid and flexbox structure as the viewport grows — plus a
+            light/dark theme driven entirely by CSS custom properties.</p>
+        </div>
       </div>
     </section>
 

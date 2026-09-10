@@ -1,3 +1,44 @@
+// ---------- Light / dark theme toggle ----------
+(function () {
+  const root = document.documentElement;
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  const STORAGE_KEY = 'aniket-portfolio-theme';
+
+  function systemPrefersDark() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    toggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    toggle.setAttribute(
+      'aria-label',
+      theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+    );
+  }
+
+  let stored = null;
+  try {
+    stored = localStorage.getItem(STORAGE_KEY);
+  } catch (err) {
+    stored = null;
+  }
+
+  applyTheme(stored || (systemPrefersDark() ? 'dark' : 'light'));
+
+  toggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try {
+      localStorage.setItem(STORAGE_KEY, next);
+    } catch (err) {
+      /* localStorage unavailable — theme still applies for this session */
+    }
+  });
+})();
+
 // ---------- Mobile nav toggle ----------
 (function () {
   const toggle = document.querySelector('.nav-toggle');
