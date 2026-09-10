@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundry Goods — Product Catalog</title>
+  <meta name="description" content="A capstone e-commerce product catalog: modular ES-module architecture, client-side hash routing, and a demo cart and checkout flow.">
+  <link rel="canonical" href="https://aniketkumar5182-ui.github.io/portfolio-website/ecommerce-catalog/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Foundry Goods — Product Catalog">
+  <meta property="og:description" content="A capstone e-commerce catalog with modular architecture and client-side routing.">
+
+  <meta name="theme-color" content="#EFF3EE">
+  <link rel="icon" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#app">Skip to main content</a>
+
+  <header class="app-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Aniket<span>.</span></a>
+      <nav class="app-nav" aria-label="Catalog">
+        <a href="#/" data-nav-link>Shop</a>
+        <a href="#/cart" data-nav-link class="cart-link">
+          Cart <span id="cart-badge" class="cart-badge" hidden></span>
+        </a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+        <span class="icon-light" aria-hidden="true">&#9728;</span>
+        <span class="icon-dark" aria-hidden="true">&#9789;</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="copyright">&copy; 2026 Aniket. Capstone demo — no real payments are processed.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
